@@ -1,0 +1,268 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+:root{
+    --Red: hsl(0, 100%, 68%);
+    --Very-Dark-Blue: hsl(230, 29%, 20%);
+    --Dark-Grayish-Blue: hsl(230, 11%, 40%);
+    --Grayish-Blue: hsl(231, 7%, 65%);
+    --Light-Grayish-Blue: hsl(207, 33%, 95%);
+}
+@font-face {
+    font-family: barlow;
+    src: url(BarlowCondensed-Regular.ttf);
+}
+body{
+    font-size: 16px;
+    font-family: barlow
+}
+header{
+    width: 100%;
+    height: 100vh;
+}
+header .navbar{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+header .navbar .logo{ 
+     flex: 1;
+    padding: 20px;
+
+}
+nav{
+    flex: 1 ;
+    background-color: var(--Light-Grayish-Blue);
+    height: 80vh;
+    border-bottom-left-radius: 25%;
+}
+ .menu{
+     position: absolute;
+     width: 70%;
+     display: none;
+     background-color: white;
+     box-shadow: 1px 1px 5px 0 rgba(0,0,0.1);
+     text-align: center;
+     top: 90px;
+     left: 60px;
+     transition: all .5s ease-in-out;
+     list-style: none;
+}
+ .menu::after{
+    content: "";
+    position: absolute;
+    bottom: 60px;
+    width: 90%; 
+    height: 2px;
+    display: block;
+    background-color: #ddd ;
+    left:13px
+}
+ .menu li{
+    margin: 30px 0px;
+}
+ .menu li a{
+    text-decoration: none;
+    color: var(--Very-Dark-Blue);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all .3s ease-in-out;
+}
+.menu li a:hover{
+    color: var(--Dark-Grayish-Blue);
+    border-bottom: 1px solid var(--Dark-Grayish-Blue);
+}
+ .menu .login{
+    color: var(--Grayish-Blue);
+
+}
+ #check{
+    display: none;
+}
+ .check_btn{
+    cursor: pointer;
+    padding: 28px 20px;
+    float: right;
+}
+ .check_btn .icon{
+    width: 20px;
+    height: 2px;
+    position: relative;
+    background-color: var(--Very-Dark-Blue);
+    display: block;
+    transition: all .3s ease-in;
+}
+.check_btn .icon::before{
+    content: "";
+    width: 100%;
+    height:100%;
+    position: absolute;
+    background-color: var(--Very-Dark-Blue);
+    display: block;
+    top: -5px;
+    transition: all .3s ease-in; 
+}
+.check_btn .icon::after{
+    content: "";
+    width: 100%;
+    height:100%;
+    position: absolute;
+    background-color: var(--Very-Dark-Blue);
+    display: block;
+    top: 5px;
+    transition: all .3s ease-in;
+}
+#check:checked ~ .menu{
+    display: block;
+}
+#check:checked ~ .check_btn .icon{
+    background-color: transparent;
+}
+#check:checked ~ .check_btn .icon::before{
+    transform: rotate(45deg);
+    top: 0px;
+}
+#check:checked ~ .check_btn .icon::after{
+    transform: rotate(-45deg);
+    top: 0px;
+}
+.flex-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 7.8rem;
+}
+.flex-box .left-content{ 
+    width: 100%;
+    content: url(images/illustration-devices.svg);
+    margin-top: -75vw;
+}
+.flex-box .right-content{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    padding: 0px 20px;
+}
+.flex-box .right-content .flex-1{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.flex-box .right-content .flex-1  .new{
+    text-decoration: none;
+    background-color: var(--Very-Dark-Blue);
+    color:  white;
+    padding: 6px 20px;
+    font-size: 20px;
+    border-radius: 17px;
+}
+.flex-box .right-content .flex-1 p{
+    color:var(--Grayish-Blue);
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.flex-box .right-content  h1{ 
+    color: var(--Very-Dark-Blue);
+    font-size: 7.5vh;
+    text-transform: uppercase;
+}
+.flex-box .right-content p{
+    width: 70%;
+     color: var(--Grayish-Blue);
+     font-size:24px;
+     padding: 10px 0px;
+}
+.flex-box .right-content .flex-2{
+    width: 100%;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+
+}
+.flex-box .right-content .flex-2 .demo{
+
+    text-decoration: none;
+    background-color:  var(--Red);
+   padding: 10px 20px;
+    font-size: 22px;
+    color: white;
+    font-weight: 400;
+    border-radius: 10px;
+}
+.flex-box .right-content .flex-2 .demo:hover{
+    background-color: hsla(0, 100%, 68%, 0.781);
+}
+.flex-box .right-content .flex-2 h2{
+    color: var(--Grayish-Blue);
+    padding: 0px;
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@media ( min-width:768px){
+    nav{
+        height: 60vh;
+    }
+    nav .menu{
+        display: flex;
+        top: 0;
+        background-color:var(--Light-Grayish-Blue);
+        box-shadow: none;
+        right: 0;
+        position: relative;
+        gap: 1.5rem;
+        padding: 0px 10px;
+    }
+    nav .menu::after{
+        display: none ;
+    }
+    nav .menu .login{
+        align-self: flex-end;
+        margin-left: 80px;
+    
+    }
+    nav .check_btn{
+        display: none;
+    }
+    .navbar .logo{
+          margin-left: 40px;
+    }
+    .flex-box{
+        flex-direction: row-reverse; 
+        gap: 2.5rem;
+        
+    }
+     .flex-box .left-content{
+        margin-top: -13vw; 
+        overflow: hidden;
+        flex: 1;
+        width: 100%;
+        height: 330px;
+     }
+      .flex-box .right-content{
+        flex: 1;
+        padding: 0px 40px;
+        margin-top: -13vw;
+      }
+      .flex-box .right-content h1{
+        font-size:5.5vw;
+      }
+}
+@media (max-width:850px){
+    .flex-box{
+        flex-direction: column;
+        gap: 8.5rem;
+        align-items: center;
+        padding: 0px 30px;
+    }
+    .flex-box .left-content{
+        margin-top: -25vw;
+    }
+}
